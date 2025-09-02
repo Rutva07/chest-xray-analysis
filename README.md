@@ -56,21 +56,27 @@ A CNN (Convolutional Neural Network) with the following components:
 # 📊 Results
 
 ### 🔹 Training data without adversarial attacks
-- Clean Model - Test Accuracy: 0.9478, Test AUC: 0.7510  
-- FGSM Attack: Accuracy = 0.9379, AUC = 0.2920  
-- PGD Attack: Accuracy = 0.9166, AUC = 0.1772  
+- Clean Model - Test Accuracy: 0.9488, Test AUC: 0.7510  
+- FGSM Attack: Accuracy = 0.9330, AUC = 0.1670  
+- PGD Attack: Accuracy = 0.9166, AUC = 0.0627  
+
+> ⚠️ Note: Although the accuracy remains relatively high under FGSM/PGD attacks, the AUC is extremely low—much worse than a random classifier (AUC ≈ 0.5). This means the model's predictions are essentially unreliable for distinguishing classes, and the high accuracy is misleading due to class imbalance or prediction bias.
 
 ### 🔹 Training data with adversarial examples (FGSM + PGD)
-- Clean Model - Test Accuracy: 0.9451, Test AUC: 0.7834  
-- FGSM Attack: Accuracy = 0.9248, AUC = 0.4881  
-- PGD Attack: Accuracy = 0.9022, AUC = 0.4012  
+- Clean Model - Test Accuracy: 0.9451, Test AUC: 0.7334  
+- FGSM Attack: Accuracy = 0.9248, AUC = 0.7081  
+- PGD Attack: Accuracy = 0.9022, AUC = 0.6212  
+
+> ⚠️ Note: Adversarial training improves robustness, reflected in higher AUC under attacks, but the AUC is still lower than the clean model, showing that the model is partially robust but not fully reliable under strong adversarial perturbations.
 
 
 # 🖼️ Visualizing Adversarial Attacks
 Below is an example chest X-ray image showing:
 - Original (clean)
-- FGSM Attack (ε = 0.01)
-- PGD Attack (ε = 0.03, α = 0.005, 10 iterations)
+- FGSM Attack (ε = 0.05)
+- PGD Attack (ε = 0.05, α = 0.01, 10 iterations)
+
+![image](chestxray.png)
 
 # 🚀 How to Run
 
