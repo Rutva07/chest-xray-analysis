@@ -95,6 +95,7 @@ python diagnosis_adv.py
 
 # ⚠️ Notes
 
-- Always use GPU acceleration for faster training.
+- Try to use GPU acceleration for faster training if possible.
+- Using CPU takes around 30 mins to run for smaller number of epochs, and only works if we use chestmnist_28.npz. Using chestmnist_128.npz may cause program to crash or can take hours to run.
 - Higher resolution datasets (128×128 or 224×224) require more memory and compute.
 - Adversarial training increases robustness but may slightly reduce clean-data accuracy.
